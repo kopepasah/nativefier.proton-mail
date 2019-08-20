@@ -1,0 +1,22 @@
+{
+  "name": "nativefier.proton-mail",
+  "version": "0.0.1",
+  "description": "Native web app for Proton Mail.",
+  "main": "build.js",
+  "scripts": {
+    "build": "node build.js",
+    "build:icns": "node build.js --icon ./icon.icns"
+  },
+  "keywords": [
+    "web",
+    "app",
+    "native",
+    "mail",
+    "email"
+  ],
+  "author": "Justin Kopepasah <justin@kopepasah.com>",
+  "license": "MPL-2.0",
+  "dependencies": {
+    "nativefier": "^7.6.12"
+  }
+}
