@@ -11,15 +11,12 @@ const path = require( 'path' );
 // External Dependencies
 const nativefier = require( 'nativefier' ).default;
 
-// Set the icon, if one exists.
-let icon = false;
+// Set a default icon.
+let icon = path.join( __dirname, 'assets', 'default.icns' );
 
-if ( process.argv.includes( '--icon' ) ) {
-	icon = process.argv[ process.argv.indexOf( '--icon' ) + 1 ];
-
-	if ( ! fs.existsSync( icon ) ) {
-		icon = false;
-	}
+// Set a custom icon, if it exists.
+if ( fs.existsSync( icon.replace( 'default.icns', 'custom.icns' ) ) ) {
+	icon = icon.replace( 'default.icns', 'custom.icns' );
 }
 
 /**
@@ -35,7 +32,7 @@ nativefier( {
 	targetUrl      : 'https://mail.protonmail.com',
 	out            : './app',
 	overwrite      : true,
-	icon           : icon || '',
+	icon           : icon,
 	counter        : true,
 	bounce         : true,
 	showMenuBar    : true,
